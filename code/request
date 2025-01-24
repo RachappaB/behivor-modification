@@ -1,0 +1,15 @@
+curl -X POST -H "Content-Type: application/json" \
+-d '{
+    "location": "Home",
+    "expected_location": "Gym",
+    "movement": 20,
+    "expected_movement": 100,
+    "health_data": "Normal",
+    "expected_health_data": "Active",
+    "website_visiting": "shopping.com",
+    "productive": 0,
+    "minutes_spent": 70,
+    "steps_taken": 200,
+    "expected_steps": 2000
+}' \
+http://127.0.0.1:5000/predict

@@ -1,0 +1,6 @@
+time,location,expected_location,movement,expected_movement,health_data,expected_health_data,website_visiting,productive,minutes_spent,steps_taken,expected_steps,shock
+10:00:00,Home,Home,0,0,Normal,Normal,study.com,1,30,0,0,0
+10:30:00,Work,Work,50,50,Normal,Normal,socialmedia.com,0,40,500,500,0
+11:00:00,Home,Gym,10,100,Normal,Active,shopping.com,0,60,100,2000,1
+11:30:00,Park,Park,300,300,Active,Active,news.com,1,20,1000,1000,0
+12:00:00,Gym,Work,200,400,Normal,Active,gaming.com,0,120,500,2000,1
