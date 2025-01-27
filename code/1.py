@@ -40,12 +40,12 @@ example_data = {
     "location": "Home",
     "expected_location": "Gym",
     "movement": 200,
-    "expected_movement": 100,
+    "expected_movement": 1000,
     "health_data": "Normal",
     "expected_health_data": "Active",
     "website_visiting": "shopping.com",
     "productive": 1,
-    "minutes_spent": 00,
+    "minutes_spent": 0,
     "steps_taken": 2000,
     "expected_steps": 2000
 }
@@ -71,6 +71,9 @@ if shock_prediction == 1:
 
     print("Shock Needed: Yes")
     print("Top contributing variables:")
-    print(feature_importance_df.head(3))  # Display the top 3 contributing variables
+    print(feature_importance_df.head(11))  # Display the top 3 contributing variables
 else:
     print("Shock Needed: No")
+    print("Top contributing variables:")
+    print(feature_importance_df.head(11))  # Display the top 3 contributing variables
+

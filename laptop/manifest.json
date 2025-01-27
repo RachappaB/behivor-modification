@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Smart Discipliner Data Collector",
+    "version": "1.0",
+    "description": "A Chrome extension to collect browsing data for the Smart Discipliner project.",
+    "permissions": ["tabs", "activeTab", "scripting", "storage"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "1.jpg"
+    }
+  }
+  

@@ -40,10 +40,10 @@ deactivate nondestructive
 if [ "${OSTYPE:-}" = "cygwin" ] || [ "${OSTYPE:-}" = "msys" ] ; then
     # transform D:\path\to\venv to /d/path/to/venv on MSYS
     # and to /cygdrive/d/path/to/venv on Cygwin
-    export VIRTUAL_ENV=$(cygpath /home/kali/github/behivor-modification/code/venv)
+    export VIRTUAL_ENV=$(cygpath /home/kali/Downloads/github/behivor-modification/code/venv)
 else
     # use the path as-is
-    export VIRTUAL_ENV=/home/kali/github/behivor-modification/code/venv
+    export VIRTUAL_ENV=/home/kali/Downloads/github/behivor-modification/code/venv
 fi
 
 _OLD_VIRTUAL_PATH="$PATH"
