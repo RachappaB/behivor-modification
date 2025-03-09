@@ -26,40 +26,31 @@ const initializeTables = async () => {
             )`,
 
 
+            
+            `CREATE TABLE IF NOT EXISTS Healthband (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                x VARCHAR(20) NOT NULL,
+                y VARCHAR(20) NOT NULL,
+                z VARCHAR(20) NOT NULL,
+                x_a VARCHAR(20) NOT NULL,
+                y_a VARCHAR(20) NOT NULL,
+                z_a VARCHAR(20) NOT NULL,
+                h1 VARCHAR(20) NOT NULL,
+                h2 VARCHAR(20) NOT NULL,
+                h3 VARCHAR(20) NOT NULL,
+                temp VARCHAR(20) NOT NULL,
+                w_day VARCHAR(20) ,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )`,
+
+
             `CREATE TABLE IF NOT EXISTS Fellings (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 fellings VARCHAR(20) NOT NULL
                 
-            )`,
-            // `CREATE TABLE IF NOT EXISTS Interests (
-            //     id INT AUTO_INCREMENT PRIMARY KEY,
-            //     person_id INT NOT NULL,
-            //     interest VARCHAR(255) NOT NULL,
-            //     FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE
-            // );`,
+            )`
 
-            // `CREATE TABLE IF NOT EXISTS Chat (
-            //     id INT AUTO_INCREMENT PRIMARY KEY,
-            //     person_id INT NOT NULL,
-            //     conversation_text TEXT NOT NULL,
-            //     date DATETIME DEFAULT CURRENT_TIMESTAMP,
-            //     FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE
-            // );`,
-
-            // `CREATE TABLE IF NOT EXISTS Meetings (
-            //     id INT AUTO_INCREMENT PRIMARY KEY,
-            //     person_id INT NOT NULL,
-            //     meeting_date DATETIME NOT NULL,
-            //     topics_discussed TEXT NOT NULL,
-            //     FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE
-            // );`,
-
-            // `CREATE TABLE IF NOT EXISTS Photos (
-            //     id INT AUTO_INCREMENT PRIMARY KEY,
-            //     person_id INT NOT NULL,
-            //     photo_url VARCHAR(500) NOT NULL,
-            //     FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE
-            // );`
+ 
         ];
 
         for (const [index, query] of tableQueries.entries()) {

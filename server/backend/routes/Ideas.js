@@ -30,16 +30,16 @@ router.get("/:id", async (req, res) => {
 
 // Add a new Ideas
 router.post("/", async (req, res) => {
-    const { Ideas } = req.body;
+    const { thoughts } = req.body;
 
 
     
 
     try {
         const sql = `
-            INSERT INTO Ideas (Ideas)
+            INSERT INTO Ideas (thoughts)
             VALUES (?)`;
-        const [result] = await db.query(sql, [Ideas]);
+        const [result] = await db.query(sql, [thoughts]);
 
         res.status(201).json({ message: "Ideas added successfully", id: result.insertId });
     } catch (err) {
@@ -55,9 +55,9 @@ router.put("/:id", async (req, res) => {
     try {
         const sql = `
             UPDATE Ideas
-            SET Ideas =?
+            SET thoughts =?
             WHERE id=?`;
-        const [result] = await db.query(sql, [ Ideas,  req.params.id]);
+        const [result] = await db.query(sql, [ thoughts,  req.params.id]);
 
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: "Ideas not found" });
