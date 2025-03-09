@@ -8,6 +8,7 @@ const db = require('./database/db');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var IdeasRouter = require('./routes/Ideas');
+var FellingsRouter = require('./routes/Felling');
 
 var app = express();
 
@@ -25,6 +26,7 @@ const cors = require("cors"); // Import CORS
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/Ideas', IdeasRouter);
+app.use('/Fellings', FellingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -16,74 +16,72 @@ router.get("/", async (req, res) => {
 });
 
 
-// Get a single ideas by ID
+// Get a single Ideas by ID
 router.get("/:id", async (req, res) => {
     try {
         const [result] = await db.query("SELECT * FROM Ideas WHERE id = ?", [req.params.id]);
-        if (result.length === 0) return res.status(404).json({ message: "ideas not found" });
+        if (result.length === 0) return res.status(404).json({ message: "Ideas not found" });
         res.json(result[0]);
     } catch (err) {
-        console.error("Error fetching ideas:", err);
+        console.error("Error fetching Ideas:", err);
         res.status(500).json({ error: "Database error" });
     }
 });
 
-// Add a new ideas
+// Add a new Ideas
 router.post("/", async (req, res) => {
-    const { thoughts } = req.body;
+    const { Ideas } = req.body;
 
 
-    if (!phone_number || !name) {
-        return res.status(400).json({ error: "Phone number and name are required" });
-    }
+    
 
     try {
         const sql = `
-            INSERT INTO Ideas (thoughts)
+            INSERT INTO Ideas (Ideas)
             VALUES (?)`;
-        const [result] = await db.query(sql, [phone_number, name, village, district, gender, economy, position, work, interest, photo_address]);
+        const [result] = await db.query(sql, [Ideas]);
 
-        res.status(201).json({ message: "ideas added successfully", id: result.insertId });
+        res.status(201).json({ message: "Ideas added successfully", id: result.insertId });
     } catch (err) {
-        console.error("Error adding ideas:", err);
+        console.error("Error adding Ideas:", err);
         res.status(500).json({ error: "Database error" });
     }
 });
 
-// Update a ideas's details
+// Update a Ideas's details
 router.put("/:id", async (req, res) => {
-    const { thoughts } = req.body;
+    const { Ideas } = req.body;
 
     try {
         const sql = `
             UPDATE Ideas
-            SET thoughts =?
+            SET Ideas =?
             WHERE id=?`;
-        const [result] = await db.query(sql, [phone_number, name, village, district, gender, economy, position, work, interest, photo_address, req.params.id]);
+        const [result] = await db.query(sql, [ Ideas,  req.params.id]);
 
         if (result.affectedRows === 0) {
-            return res.status(404).json({ message: "ideas not found" });
+            return res.status(404).json({ message: "Ideas not found" });
         }
 
-        res.json({ message: "ideas updated successfully" });
+        res.json({ message: "Ideas updated successfully" });
     } catch (err) {
-        console.error("Error updating ideas:", err);
+        console.error("Error updating Ideas:", err);
         res.status(500).json({ error: "Database error" });
     }
 });
 
-// Delete a ideas
+// Delete a Ideas
 router.delete("/:id", async (req, res) => {
     try {
         const [result] = await db.query("DELETE FROM Ideas WHERE id = ?", [req.params.id]);
 
         if (result.affectedRows === 0) {
-            return res.status(404).json({ message: "ideas not found" });
+            return res.status(404).json({ message: "Ideas not found" });
         }
 
-        res.json({ message: "ideas deleted successfully" });
+        res.json({ message: "Ideas deleted successfully" });
     } catch (err) {
-        console.error("Error deleting ideas:", err);
+        console.error("Error deleting Ideas:", err);
         res.status(500).json({ error: "Database error" });
     }
 });

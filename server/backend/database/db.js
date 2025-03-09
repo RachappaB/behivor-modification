@@ -25,6 +25,12 @@ const initializeTables = async () => {
                 
             )`,
 
+
+            `CREATE TABLE IF NOT EXISTS Fellings (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                fellings VARCHAR(20) NOT NULL
+                
+            )`,
             // `CREATE TABLE IF NOT EXISTS Interests (
             //     id INT AUTO_INCREMENT PRIMARY KEY,
             //     person_id INT NOT NULL,
